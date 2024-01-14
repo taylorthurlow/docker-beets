@@ -45,6 +45,8 @@ RUN \
     nano \
     openjpeg \
     python3 \
+    webhook \
+    imagemagick \
     sqlite-libs && \
   echo "**** compile mp3gain ****" && \
   mkdir -p \
@@ -100,12 +102,16 @@ RUN \
 
 # environment settings
 ENV BEETSDIR="/config" \
-EDITOR="nano" \
+EDITOR="vi" \
 HOME="/config"
 
 # copy local files
 COPY root/ /
 
+RUN mkdir /data
+RUN ln -s /music /data/music
+
 # ports and volumes
 EXPOSE 8337
 VOLUME /config
+CMD ["webhook", "-hooks", "/hooks.json", "-logfile", "/webhook.log"]

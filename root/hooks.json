@@ -1,0 +1,15 @@
+[
+  {
+    "id": "beets-import",
+    "execute-command": "/var/scripts/beets-import.sh",
+    "command-working-directory": "/",
+    "include-command-output-in-response": true,
+    "include-command-output-in-response-on-error": true,
+    "pass-arguments-to-command": [
+      {
+        "source": "url",
+        "name": "release-path"
+      }
+    ]
+  }
+]
