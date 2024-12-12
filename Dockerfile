@@ -114,4 +114,5 @@ RUN ln -s /music /data/music
 # ports and volumes
 EXPOSE 8337
 VOLUME /config
+USER abc
 CMD ["webhook", "-hooks", "/hooks.json", "-logfile", "/webhook.log"]
